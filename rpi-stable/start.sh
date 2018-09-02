@@ -19,9 +19,9 @@ USER_GID=${HOST_USER_GID:=$USER_GID}
 sed -i -e "s/^${USER}:\([^:]*\):[0-9]*:[0-9]*/${USER}:\1:${USER_ID}:${USER_GID}/"  /etc/passwd
 sed -i -e "s/^${USER}:\([^:]*\):[0-9]*/${USER}:\1:${USER_GID}/" /etc/group
 
-if ! [ "$(ls -A /etc/homegear)" ]; then
-	cp -a /etc/homegear.config/* /etc/homegear/
-fi
+#if ! [ "$(ls -A /etc/homegear)" ]; then
+	cp -a -n /etc/homegear.config/* /etc/homegear/
+#fi
 
 if ! [ "$(ls -A /var/lib/homegear)" ]; then
 	cp -a /var/lib/homegear.data/* /var/lib/homegear/
