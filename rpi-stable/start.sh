@@ -23,7 +23,7 @@ sed -i -e "s/^${USER}:\([^:]*\):[0-9]*/${USER}:\1:${USER_GID}/" /etc/group
 	cp -a -n /etc/homegear.config/* /etc/homegear/
 #fi
 
-if ! [ "$(ls -A /var/lib/homegear)" ]; then
+if ! [ "$(ls -A -I .gitignore /var/lib/homegear)" ]; then
 	cp -a /var/lib/homegear.data/* /var/lib/homegear/
 else
 	rm -Rf /var/lib/homegear/modules/*
